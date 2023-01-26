@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous">
+    <script src="./app.js"></script>
+    <title>Fencing Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 main-col">
+                <div class="card d-flex align-items-center background-color-success">
+                    <div class="row">
+                        <h1>Fencing Calculator</h1>
+                    </div>
+                    <div class="row  d-flex justify-content-center">
+                        <div class="col-md-6"><label> Length: </label></div>
+                        <div class="col-md-6"><input id="length" placeholder="Enter Length in Feet" type="number"></div>
+                        <div class="col-md-6"><label> Height: </label></div>
+                        <div class="col-md-6"><input id="height" placeholder="Enter Height in Feet" type="number"></div>
+                        <div class="col-md-6"><label> Space b/w Fence: </label></div>
+                        <div class="col-md-6"><input id="space" placeholder="Enter Space in Feet" type="number"></div>
+                        <div class="col-md-6"><label> Pole Distance: </label></div>
+                        <div class="col-md-6"><input id="pol" placeholder="Enter Pole Distance" type="number"></div>
+                        <div class="row"><button class="button btn-outline-success" type="submit" onClick="calculate()">Calculate</button>
+                            
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-start">
+                        <div class="result">
+                            <div class="row-md-12">
+                                
+                            </div>
+                            <div class="row-md-12">
+                                <lable>
+                                    <p>Total Wires Used: <span id="wirResult"></span>feet</p>
+                                </lable>
+                            </div>
+                            <div class="row-md-12">
+                                <lable>
+                                    <p>Total Poles Used: <span id="polResult"></span>feet</p>
+                                </lable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</body>
+<script>
+    const calculate = () => {
+        let length = document.getElementById("length").value
+        let height = document.getElementById("height").value
+        let wire_space = document.getElementById("space").value
+        let pol = document.getElementById("pol").value
+        let total_wire = height / wire_space * length
+        let total_pols = length / pol + 1
+        document.getElementById("wirResult").innerHTML = total_wire
+        document.getElementById("polResult").innerHTML = total_pols
+    }
+</script>
+</html>                                       
